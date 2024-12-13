@@ -38,3 +38,10 @@ class DBFBSignInEvent extends AuthenticationEvent {
         email,
       ];
 }
+
+class DBFBSignOutEvent extends AuthenticationEvent {
+  const DBFBSignOutEvent();
+
+  @override
+  List<Object> get props => [];
+}

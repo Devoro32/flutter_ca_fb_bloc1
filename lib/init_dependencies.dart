@@ -23,6 +23,7 @@ Future<void> initializeDependencies() async {
   getIt.registerSingleton<DBFBIsLoggedInUC>(DBFBIsLoggedInUC(getIt()));
   getIt.registerSingleton<DBFBSendPWUC>(DBFBSendPWUC(getIt()));
   getIt.registerSingleton<DBFBGetUserUC>(DBFBGetUserUC(getIt()));
+  getIt.registerSingleton<DBFBSignOutUC>(DBFBSignOutUC(getIt()));
 
   //4. bloc/cubit
 
@@ -34,6 +35,7 @@ Future<void> initializeDependencies() async {
   getIt.registerFactory(() => AuthenticationBloc(
         dbfbSignUpUC: getIt(),
         dbfbsignInUC: getIt(),
+        dbfbSignOutUC: getIt(),
       ));
 
   //!DB

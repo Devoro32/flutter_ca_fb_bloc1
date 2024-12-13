@@ -3,24 +3,24 @@ import 'package:equatable/equatable.dart';
 class AuthFBUser extends Equatable {
   const AuthFBUser({
     required this.id,
-    required this.createdAt,
-    required this.name,
-    required this.avatar,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
   });
 
   const AuthFBUser.empty()
       : this(
           id: '1',
-          createdAt: '_empty.createdAt',
-          name: '_empty.name',
-          avatar: '_empty.avatar',
+          firstName: '_empty.firstName',
+          lastName: '_empty.lastName',
+          email: '_empty.email',
         );
 
   final String id;
-  final String createdAt;
-  final String name;
-  final String avatar;
+  final String firstName;
+  final String lastName;
+  final String email;
 
   @override
-  List<Object?> get props => [id, name, avatar];
+  List<Object?> get props => [id, firstName, lastName, email];
 }

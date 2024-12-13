@@ -55,7 +55,16 @@ export 'package:ca_firebase2_app/features/authentication/presentation/widgets/au
 export 'package:ca_firebase2_app/features/authentication/presentation/views/signin_page.dart';
 export 'package:ca_firebase2_app/features/authentication/presentation/views/signup_page.dart';
 export 'package:ca_firebase2_app/features/authentication/presentation/views/sign_in_page_cubit.dart';
-
+export 'package:ca_firebase2_app/features/authentication/domain/usecases/db_auth_signout_uc.dart';
 //cubit/bloc
 export 'package:ca_firebase2_app/features/authentication/presentation/cubit/authentication_cubit.dart';
 export 'package:ca_firebase2_app/features/authentication/presentation/bloc/authentication_bloc.dart';
+
+//!Dear Programmer Todo: https://youtu.be/MMo3gghipN4
+
+//data
+
+//domain
+
+//presentation
+

@@ -77,4 +77,14 @@ class AuthenticationRepositoryImplementation
       return Left(DBFailure(e.toString()));
     }
   }
+
+  @override
+  ResultVoid signOut() async {
+    try {
+      await _remoteDataSource.signOut();
+      return const Right(null);
+    } catch (e) {
+      return Left(DBFailure(e.toString()));
+    }
+  }
 }

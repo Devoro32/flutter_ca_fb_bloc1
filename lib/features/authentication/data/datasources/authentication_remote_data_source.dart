@@ -22,6 +22,7 @@ abstract class DBFBAuthenticationRemoteDataSource {
   Future<Either> sendPasswordResetEmail(String email);
   Future<bool> isLoggedIn();
   Future<Either> getUser();
+  Future<Either> signOut();
 }
 
 class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
@@ -104,6 +105,7 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
     }
   }
 
+//TODO: need to enable persisten login from Ecommerce
   @override
   Future<bool> isLoggedIn() async {
     if (FirebaseAuth.instance.currentUser != null) {
@@ -113,6 +115,7 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
     }
   }
 
+//TODO: need to enable persisten login from Ecommerce
   @override
   Future<Either> getUser() async {
     try {
@@ -125,6 +128,16 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
       return Right(userData);
     } catch (e) {
       return const Left('Please try again');
+    }
+  }
+
+  Future<Either> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return const Right('Sign out');
+    } catch (e) {
+      print(e.toString());
+      return left(e.toString());
     }
   }
 }

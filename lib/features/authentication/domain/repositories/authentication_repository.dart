@@ -21,6 +21,7 @@ abstract class DBFBAuthenticationRepository {
   ResultVoid sendPasswordResetEmail(String email);
   Future<bool> isLoggedIn();
   ResultVoid getUser();
+  ResultVoid signOut();
 
   //   Future<Either> sendPasswordResetEmail(String email);
   // Future<bool> isLoggedIn();

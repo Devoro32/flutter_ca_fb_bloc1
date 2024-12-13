@@ -6,19 +6,19 @@ import 'dart:convert';
 import 'package:ca_firebase2_app/export.dart';
 
 class CAFBUserModel extends AuthFBUser {
-  const CAFBUserModel({
-    required super.avatar,
+  CAFBUserModel({
+    required super.firstName,
+    required super.lastName,
+    required super.email,
     required super.id,
-    required super.createdAt,
-    required super.name,
   });
 
-  const CAFBUserModel.empty()
+  CAFBUserModel.empty()
       : this(
           id: '1',
-          createdAt: '_empty.createdAt',
-          name: '_empty.name',
-          avatar: '_empty.avatar',
+          firstName: '_empty.createdAt',
+          lastName: '_empty.name',
+          email: '_empty.avatar',
         );
 
   factory CAFBUserModel.fromJson(String source) =>
@@ -26,31 +26,31 @@ class CAFBUserModel extends AuthFBUser {
 
   CAFBUserModel.fromMap(DataMap map)
       : this(
-          avatar: map['avatar'] as String,
+          firstName: map['firstName'] as String,
+          lastName: map['lastName'] as String,
+          email: map['email'] as String,
           id: map['id'] as String,
-          createdAt: map['createdAt'] as String,
-          name: map['name'] as String,
         );
 
   CAFBUserModel copyWith({
-    String? avatar,
+    String? firstName,
     String? id,
-    String? createdAt,
-    String? name,
+    String? lastName,
+    String? email,
   }) {
     return CAFBUserModel(
-      avatar: avatar ?? this.avatar,
+      firstName: firstName ?? this.firstName,
       id: id ?? this.id,
-      createdAt: createdAt ?? this.createdAt,
-      name: name ?? this.name,
+      lastName: lastName ?? this.lastName,
+      email: email ?? this.email,
     );
   }
 
   DataMap toMap() => {
         'id': id,
-        'avatar': avatar,
-        'createdAt': createdAt,
-        'name': name,
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
       };
 
   String toJson() => jsonEncode(toMap());
