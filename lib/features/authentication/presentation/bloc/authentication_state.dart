@@ -37,7 +37,7 @@ class UsersLoaded extends AuthenticationState {
   final List<AuthFBUser> users;
 
   @override
-  List<Object> get props => users.map((user) => user.id).toList();
+  List<Object> get props => users.map((user) => user.uid).toList();
 }
 
 class AuthenticationError extends AuthenticationState {

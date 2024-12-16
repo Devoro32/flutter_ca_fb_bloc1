@@ -21,7 +21,7 @@ abstract class DBFBAuthenticationRemoteDataSource {
 
   Future<Either> sendPasswordResetEmail(String email);
   Future<bool> isLoggedIn();
-  Future<Either> getUser();
+  ResultFuture<AuthFBUser> getUser();
   Future<Either> signOut();
 }
 
@@ -35,6 +35,7 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
     required String lastName,
     required String email,
     required String password,
+    String uid = '',
   }) async {
     try {
       var returnedData =
@@ -53,6 +54,7 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
         'firstName': firstName,
         'lastName': lastName,
         'email': email,
+        'uid': returnedData.user!.uid,
       });
 
       return const Right('Sign up was successfull');
@@ -117,7 +119,7 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
 
 //TODO: need to enable persisten login from Ecommerce
   @override
-  Future<Either> getUser() async {
+  ResultFuture<CAFBUserModel> getUser() async {
     try {
       var currentUser = FirebaseAuth.instance.currentUser;
       var userData = await FirebaseFirestore.instance
@@ -125,9 +127,9 @@ class DBFBAuthRemoteDataSrcImpl implements DBFBAuthenticationRemoteDataSource {
           .doc(currentUser?.uid)
           .get()
           .then((value) => value.data());
-      return Right(userData);
+      return Right(CAFBUserModel.fromJson(userData.toString()));
     } catch (e) {
-      return const Left('Please try again');
+      return const Left(DBFailure('Please try again'));
     }
   }
 

@@ -10,12 +10,12 @@ class CAFBUserModel extends AuthFBUser {
     required super.firstName,
     required super.lastName,
     required super.email,
-    required super.id,
+    required super.uid,
   });
 
   CAFBUserModel.empty()
       : this(
-          id: '1',
+          uid: '1',
           firstName: '_empty.createdAt',
           lastName: '_empty.name',
           email: '_empty.avatar',
@@ -29,25 +29,25 @@ class CAFBUserModel extends AuthFBUser {
           firstName: map['firstName'] as String,
           lastName: map['lastName'] as String,
           email: map['email'] as String,
-          id: map['id'] as String,
+          uid: map['uid'] as String,
         );
 
   CAFBUserModel copyWith({
     String? firstName,
-    String? id,
+    String? uid,
     String? lastName,
     String? email,
   }) {
     return CAFBUserModel(
       firstName: firstName ?? this.firstName,
-      id: id ?? this.id,
+      uid: uid ?? this.uid,
       lastName: lastName ?? this.lastName,
       email: email ?? this.email,
     );
   }
 
   DataMap toMap() => {
-        'id': id,
+        'uid': uid,
         'firstName': firstName,
         'lastName': lastName,
         'email': email,

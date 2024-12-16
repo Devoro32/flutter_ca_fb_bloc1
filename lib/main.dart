@@ -1,4 +1,5 @@
 import 'package:ca_firebase2_app/export.dart';
+import 'package:ca_firebase2_app/features/DPTodo/dp_todo_export.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,6 +12,8 @@ Future<void> main() async {
         create: (_) => getIt<AuthenticationBloc>(),
       ),
       BlocProvider(create: (_) => getIt<AuthenticationCubit>()),
+      BlocProvider(create: (context) => TaskTabSelectionCubit()),
+      BlocProvider(create: (context) => getIt<DptodoBloc>()),
     ],
     child: const MyApp(),
   ));

@@ -18,7 +18,8 @@ export 'package:ca_firebase2_app/Core/error/failures.dart';
 export 'package:ca_firebase2_app/Core/usecases/core_usecases.dart';
 export 'package:ca_firebase2_app/Core/bloc_cubit/app_user/app_user_cubit.dart';
 export 'package:ca_firebase2_app/Core/utils/constants.dart';
-
+export 'package:ca_firebase2_app/Core/widgets/header.dart';
+export 'package:ca_firebase2_app/Core/bloc_cubit/DisplayInfo/user_info_display_cubit.dart';
 export 'package:ca_firebase2_app/features/main_page.dart';
 //!Home
 
@@ -47,6 +48,7 @@ export 'package:ca_firebase2_app/features/authentication/domain/usecases/db_auth
 export 'package:ca_firebase2_app/features/authentication/domain/usecases/db_auth_getUser_uc.dart';
 export 'package:ca_firebase2_app/features/authentication/domain/usecases/db_auth_isLoggedIn_uc.dart';
 export 'package:ca_firebase2_app/features/authentication/domain/usecases/db_auth_sendpw_uc.dart';
+
 //presentation
 
 export 'package:ca_firebase2_app/features/authentication/presentation/widgets/loading_column.dart';

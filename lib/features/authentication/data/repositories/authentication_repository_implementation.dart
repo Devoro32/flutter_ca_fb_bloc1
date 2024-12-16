@@ -52,10 +52,11 @@ class AuthenticationRepositoryImplementation
   }
 
   @override
-  ResultVoid getUser() async {
+  // ResultFuture<dynamic>
+  Future<Either> getUser() async {
     try {
-      await _remoteDataSource.getUser();
-      return const Right(null);
+      var userdata = await _remoteDataSource.getUser();
+      return Right(userdata);
     } catch (e) {
       return Left(DBFailure(e.toString()));
     }
