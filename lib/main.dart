@@ -32,3 +32,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//! Not sure of the CA architecture in getting the user infomation, not sure why I used dynamic. 

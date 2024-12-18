@@ -2,6 +2,9 @@ import 'package:ca_firebase2_app/export.dart';
 
 import 'package:ca_firebase2_app/features/DPTodo/dp_todo_export.dart';
 
+//https://youtu.be/MMo3gghipN4
+//!Need to fix the widget dropdown: https://youtu.be/MMo3gghipN4?t=2938
+//!Need to update the view widgets
 class DPTodoHomeScreen extends StatefulWidget {
   static route() =>
       MaterialPageRoute(builder: (context) => const DPTodoHomeScreen());
@@ -14,10 +17,11 @@ class DPTodoHomeScreen extends StatefulWidget {
 class _DPTodoHomeScreenState extends State<DPTodoHomeScreen> {
   final _widgets = [
     //Pending Task widget
+//TODO: Fix the pages first, then enable this
 
-    DPPendingTodoWidget(),
-    //Completed Tasks
-    DPComplToDoWidget(),
+    // DPPendingTodoWidget(),
+    // //Completed Tasks
+    // DPComplToDoWidget(),
   ];
   // int _buttonIndex = 0;
 
